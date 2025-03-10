@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Form from './components/Form';
 import List from './components/List';
-//import './App.css'
+import './styles/index.css';
 
 interface News {
   id: number;
@@ -47,11 +47,11 @@ const App: React.FC = () => {
   }, [newsList]);
 
   return (
-    <>
+    <div className='container'>
       <h1>Список новостей</h1>
       <Form onSubmit={addOrEditNews} currentNews={currentNews}/>
       <List newsList={newsList} onEdit={editNews} onDelete={deleteNews} />
-    </>
+    </div>
   )
 }
 
