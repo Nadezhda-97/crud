@@ -17,10 +17,10 @@ const List: React.FC<ListProps> = ({ newsList, onEdit, onDelete }) => {
     <ul>
       {newsList.map((news) => (
         <li key={news.id}>
-          <h3>{news.title}</h3>
+          <h3 className="news-title">{news.title}</h3>
           <p>{news.description}</p>
-          <button onClick={() => onEdit(news)}>Редактировать</button>
-          <button onClick={() => onDelete(news.id)}>Удалить</button>
+          <button className="edit" onClick={() => onEdit(news)}>Редактировать</button>
+          <button className="delete" onClick={() => onDelete(news.id)}>Удалить</button>
         </li>
       ))}
     </ul>
