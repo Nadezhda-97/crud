@@ -1,10 +1,5 @@
 import React from "react";
-
-interface News {
-  id: number;
-  title: string;
-  description: string;
-}
+import News from "../types/News";
 
 interface ListProps {
   newsList: News[];
