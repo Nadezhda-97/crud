@@ -1,13 +1,19 @@
-body {
+html, body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
   margin: 0;
   padding: 0;
+  height: 100%; /* Занимает всю высоту */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* height: 100vh; */
 }
 
 .container {
-  max-width: 600px;
-  margin: 0 auto;
+  /* Убираем max-width для мобильных устройств */
+  max-width: 600px;  /*Максимальная ширина для десктопов */
+  margin: 0 auto;  /*Центрирование контейнера */
   padding: 20px;
   background-color: #ffffff;
   border-radius: 8px;
@@ -41,6 +47,7 @@ button {
   color: #fff;
   font-size: 16px;
   cursor: pointer;
+  transition: background-color 0.3s, transform 0.1s; /* Плавные эффекты */
 }
 
 button[type="submit"] {
@@ -54,6 +61,14 @@ button.edit {
 
 button.delete {
   background-color: #DC3545;
+}
+
+button:hover {
+  opacity: 0.9; /* Уменьшаем непрозрачность при наведении */
+}
+
+button:active {
+  transform: scale(0.95); /* Уменьшаем размер при нажатии */
 }
 
 ul {
@@ -72,4 +87,50 @@ li {
 .news-title {
   margin: 0 0 10px 0;
   color: #007BFF;
+}
+
+/* Адаптивные стили для мобильных устройств */
+@media (max-width: 768px) {
+  .container {
+    padding: 15px;
+    width: 100%; /* Убираем ограничение по ширине */
+    box-shadow: none; /* Убираем тень для более простого оформления */
+    border-radius: 0; /* Убираем закругление углов */
+  }
+
+  h1 {
+    font-size: 24px;
+  }
+
+  input[type="text"],
+  textarea {
+    font-size: 14px;
+  }
+
+  button {
+    font-size: 14px;
+  }
+
+  li {
+    padding: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 {
+    font-size: 20px;
+  }
+
+  input[type="text"],
+  textarea {
+    font-size: 12px;
+  }
+
+  button {
+    font-size: 12px;
+  }
+
+  li {
+    padding: 8px;
+  }
 }
