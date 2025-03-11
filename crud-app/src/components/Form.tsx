@@ -1,14 +1,9 @@
 import React, { useEffect, useState } from "react";
-
-interface News {
-  id: number;
-  title: string;
-  description: string;
-}
+import News from "../types/News";
 
 interface FormProps {
   onSubmit: (news: News) => void;
-  currentNews?: News
+  currentNews?: News | null; //исправила ошибку тс
 }
 
 const Form: React.FC<FormProps> = ({ onSubmit, currentNews}) => {
