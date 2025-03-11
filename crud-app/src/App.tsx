@@ -1,13 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Form from './components/Form';
 import List from './components/List';
-import './styles/index.css';
-
-interface News {
-  id: number;
-  title: string;
-  description: string;
-}
+import News from './types/News';
 
 const App: React.FC = () => {
   const [newsList, setNewsList] = useState<News[]>([]);
@@ -16,9 +10,11 @@ const App: React.FC = () => {
   // Добавление или обновление новости
   const addOrEditNews = (news: News) => {
     if (currentNews) {
+      // Обновляем существующую новость
       setNewsList(newsList.map((n) => (n.id === news.id ? news : n)));
       setCurrentNews(null); // сброс текущей новости после обновления
     } else {
+      // Добавляем новую новость
       setNewsList([...newsList, news]);
     }
   };
