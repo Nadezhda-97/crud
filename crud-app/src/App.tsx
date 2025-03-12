@@ -5,26 +5,16 @@ import News from './types/News';
 
 const App: React.FC = () => {
   const [newsList, setNewsList] = useState<News[]>([]);
-  const [currentNews, setCurrentNews] = useState<News | null>(null);
 
-  // Добавление или обновление новости
-  const addOrEditNews = (news: News) => {
-    if (currentNews) {
-      // Обновляем существующую новость
-      setNewsList(newsList.map((n) => (n.id === news.id ? news : n)));
-      setCurrentNews(null); // сброс текущей новости после обновления
-    } else {
-      // Добавляем новую новость
-      setNewsList([...newsList, news]);
-    }
+  const addNews = (news: News) => {
+    setNewsList([...newsList, news]);
   };
 
-  // Установка текущей новости для редактирования
   const editNews = (news: News) => {
-    setCurrentNews(news);
+    const editingNewsList = newsList.map((item) => item.id === news.id ? news : item);
+    setNewsList(editingNewsList);
   };
 
-  // Удаление новости
   const deleteNews = (id: number) => {
     setNewsList(newsList.filter((news) => news.id !== id));
   };
@@ -45,10 +35,10 @@ const App: React.FC = () => {
   return (
     <div className='container'>
       <h1>Список новостей</h1>
-      <Form onSubmit={addOrEditNews} currentNews={currentNews}/>
+      <Form onSubmit={addNews} />
       <List newsList={newsList} onEdit={editNews} onDelete={deleteNews} />
     </div>
-  )
+  );
 }
 
 export default App;
