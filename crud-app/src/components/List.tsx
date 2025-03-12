@@ -1,5 +1,6 @@
 import React from "react";
 import News from "../types/News";
+import NewsItem from "./NewsItem";
 
 interface ListProps {
   newsList: News[];
@@ -11,12 +12,7 @@ const List: React.FC<ListProps> = ({ newsList, onEdit, onDelete }) => {
   return (
     <ul>
       {newsList.map((news) => (
-        <li key={news.id}>
-          <h3 className="news-title">{news.title}</h3>
-          <p>{news.description}</p>
-          <button className="edit" onClick={() => onEdit(news)}>Редактировать</button>
-          <button className="delete" onClick={() => onDelete(news.id)}>Удалить</button>
-        </li>
+        <NewsItem key={news.id} news={news} onEdit={onEdit} onDelete={onDelete} />
       ))}
     </ul>
   );
