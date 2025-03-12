@@ -1,35 +1,25 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import News from "../types/News";
 
 interface FormProps {
   onSubmit: (news: News) => void;
-  currentNews?: News | null; //исправила ошибку тс
 }
 
-const Form: React.FC<FormProps> = ({ onSubmit, currentNews}) => {
+const Form: React.FC<FormProps> = ({ onSubmit }) => {
   const [title, setTitle] = useState<string>('');
   const [description, setDescription] = useState<string>('');
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (title && description) {
-      const newNews = {
-        id: currentNews ? currentNews.id : Date.now(),
-        title,
-        description,
-      };
-      onSubmit(newNews);
-      setTitle('');
-      setDescription('');
-    }
+    const newNews = {
+      id: Date.now(),
+      title,
+      description,
+    };
+    onSubmit(newNews);
+    setTitle('');
+    setDescription('');
   };
-
-  useEffect(() => {
-    if (currentNews) {
-      setTitle(currentNews.title);
-      setDescription(currentNews.description);
-    }
-  }, [currentNews]);
 
   return (
     <>
@@ -48,7 +38,7 @@ const Form: React.FC<FormProps> = ({ onSubmit, currentNews}) => {
           onChange={(e) => setDescription(e.target.value)}
           required
         />
-        <button type="submit">{currentNews ? 'Обновить' : 'Добавить'}</button>
+        <button type="submit">Добавить новость</button>
       </form>
     </>
   )
