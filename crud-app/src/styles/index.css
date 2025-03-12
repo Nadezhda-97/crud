@@ -1,21 +1,14 @@
-html, body {
+body {
   font-family: Arial, sans-serif;
   background-color: #f8f9fa;
   margin: 0;
-  padding: 0;
-  height: 100%; /* Занимает всю высоту */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  /* height: 100vh; */
 }
 
 .container {
-  /* Убираем max-width для мобильных устройств */
-  max-width: 600px;  /*Максимальная ширина для десктопов */
-  margin: 0 auto;  /*Центрирование контейнера */
+  max-width: 600px;
+  margin: 20px auto;
   padding: 20px;
-  background-color: #ffffff;
+  background: white;
   border-radius: 8px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
@@ -35,9 +28,9 @@ input[type="text"],
 textarea {
   padding: 10px;
   margin-bottom: 10px;
-  border: 1px solid #ced4da;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  font-size: 16px;
+  box-sizing: border-box;
 }
 
 button {
@@ -45,43 +38,46 @@ button {
   border: none;
   border-radius: 4px;
   color: #fff;
-  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s, transform 0.1s; /* Плавные эффекты */
 }
 
 button[type="submit"] {
   background-color: #28A745;
 }
 
-button.edit {
+button.edit,
+button.save {
   background-color: #007BFF;
-  margin-right: 10px;
+  margin-right: 10px; /* ??? */
 }
 
-button.delete {
+button.delete,
+button.cancel {
   background-color: #DC3545;
 }
 
 button:hover {
-  opacity: 0.9; /* Уменьшаем непрозрачность при наведении */
+  opacity: 0.9;
 }
 
 button:active {
-  transform: scale(0.95); /* Уменьшаем размер при нажатии */
+  transform: scale(0.95);
 }
 
 ul {
   list-style-type: none;
   padding: 0;
 }
-  
+
 li {
-  padding: 15px;
-  margin-bottom: 10px;
-  background-color: #f1f1f1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
   border-radius: 4px;
-  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  margin-bottom: 10px;
+  background-color: #fafafa;
 }
 
 .news-title {
@@ -89,48 +85,27 @@ li {
   color: #007BFF;
 }
 
-/* Адаптивные стили для мобильных устройств */
-@media (max-width: 768px) {
+@media (max-width: 600px) {
   .container {
+    margin: 10px;
     padding: 15px;
-    width: 100%; /* Убираем ограничение по ширине */
-    box-shadow: none; /* Убираем тень для более простого оформления */
-    border-radius: 0; /* Убираем закругление углов */
   }
 
-  h1 {
-    font-size: 24px;
-  }
-
-  input[type="text"],
-  textarea {
-    font-size: 14px;
+  input {
+    font-size: 16px;
   }
 
   button {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   li {
-    padding: 10px;
-  }
-}
-
-@media (max-width: 480px) {
-  h1 {
-    font-size: 20px;
+    flex-direction: column;
+    align-items: flex-start;
   }
 
-  input[type="text"],
-  textarea {
-    font-size: 12px;
-  }
-
-  button {
-    font-size: 12px;
-  }
-
-  li {
-    padding: 8px;
+  li button {
+    width: 100%;
+    margin-top: 5px;
   }
 }
