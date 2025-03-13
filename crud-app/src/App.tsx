@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Form from './components/Form';
-import List from './components/List';
+import NewsForm from './components/NewsForm';
+import NewsList from './components/NewsList';
 import News from './types/News';
 
 const App: React.FC = () => {
@@ -33,10 +33,10 @@ const App: React.FC = () => {
   }, [newsList]);
 
   return (
-    <div className='container'>
+    <div>
       <h1>Список новостей</h1>
-      <Form onSubmit={addNews} />
-      <List newsList={newsList} onEdit={editNews} onDelete={deleteNews} />
+      <NewsForm onSubmit={addNews} />
+      <NewsList newsList={newsList} onEdit={editNews} onDelete={deleteNews} />
     </div>
   );
 }
