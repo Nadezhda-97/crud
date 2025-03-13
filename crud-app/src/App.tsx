@@ -3,20 +3,27 @@ import NewsForm from './components/NewsForm';
 import NewsList from './components/NewsList';
 import News from './types/News';
 
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+import './styles/toastStyles.css';
+
 const App: React.FC = () => {
   const [newsList, setNewsList] = useState<News[]>([]);
 
   const addNews = (news: News) => {
     setNewsList([...newsList, news]);
+    toast.success('Новость добавлена!');
   };
 
   const editNews = (news: News) => {
     const editingNewsList = newsList.map((item) => item.id === news.id ? news : item);
     setNewsList(editingNewsList);
+    toast.info('Изменения сохранены!');
   };
 
   const deleteNews = (id: number) => {
     setNewsList(newsList.filter((news) => news.id !== id));
+    toast.error('Новость удалена!');
   };
 
   // Загрузка новостей из локального хранилища при первом рендере
@@ -37,6 +44,7 @@ const App: React.FC = () => {
       <h1>Список новостей</h1>
       <NewsForm onSubmit={addNews} />
       <NewsList newsList={newsList} onEdit={editNews} onDelete={deleteNews} />
+      <ToastContainer />
     </div>
   );
 }
