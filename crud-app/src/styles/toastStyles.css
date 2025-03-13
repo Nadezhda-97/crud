@@ -1,0 +1,29 @@
+.Toastify__toast {
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 16px;
+}
+
+.Toastify__close-button {
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  .Toastify__toast {
+    font-size: 14px; /* Уменьшаем размер шрифта для мобильных устройств */
+    padding: 12px;   /* Уменьшаем отступы для мобильных устройств */
+  }
+}
+
+@media (max-width: 480px) {
+  .Toastify__toast {
+    font-size: 12px; /* Еще меньше для очень маленьких экранов */
+    padding: 10px;   /* Еще меньше отступы */
+    max-width: 50%;
+    margin: 0 auto;     /* Центрируем уведомление */
+  }
+
+  .Toastify__close-button {
+    width: 20%;
+  }
+}
