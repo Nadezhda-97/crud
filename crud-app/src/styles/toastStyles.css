@@ -10,17 +10,17 @@
 
 @media (max-width: 768px) {
   .Toastify__toast {
-    font-size: 14px; /* Уменьшаем размер шрифта для мобильных устройств */
-    padding: 12px;   /* Уменьшаем отступы для мобильных устройств */
+    font-size: 14px;
+    padding: 12px;
   }
 }
 
 @media (max-width: 480px) {
   .Toastify__toast {
-    font-size: 12px; /* Еще меньше для очень маленьких экранов */
-    padding: 10px;   /* Еще меньше отступы */
-    max-width: 50%;
-    margin: 0 auto;     /* Центрируем уведомление */
+    font-size: 12px;
+    padding: 10px;
+    max-width: 70%;
+    margin: 0 auto;
   }
 
   .Toastify__close-button {
