@@ -13,7 +13,7 @@ const NewsItem: React.FC<NewsItemProps> = ({ news, onEdit, onDelete }) => {
   const [updatedDescription, setUpdatedDescription] = useState<string>(news.description);
 
   const handleEdit = () => {
-    const updatedNews = { ...news, title: updatedTitle, description: updatedDescription };
+    const updatedNews: News = { ...news, title: updatedTitle, description: updatedDescription };
     onEdit(updatedNews);
     setIsEditing(false);
   };
